@@ -1,0 +1,466 @@
+/* ═══════════════════════════════════════════════════════════
+   GRAND VISTA — Hotel Management System
+   Dark Slate Theme with warm amber accents
+   Font: loaded via system fallback (Segoe UI / SF Pro / sans)
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Palette ── */
+/* bg-deep:   #0f1117   bg-card: #1a1d27   bg-input: #22263a  */
+/* accent:    #f59e0b   green:   #4ade80   red: #f87171        */
+/* text-main: #e8eaf0   text-dim: #8b90a8                     */
+
+/* ── Root ─────────────────────────────────────────────────── */
+.root-pane {
+    -fx-background-color: #0f1117;
+    -fx-font-family: "Segoe UI", "SF Pro Display", "Helvetica Neue", sans-serif;
+}
+
+/* ── Header ───────────────────────────────────────────────── */
+.header {
+    -fx-background-color: #13161f;
+    -fx-border-color: #2a2f45;
+    -fx-border-width: 0 0 1 0;
+}
+
+.header-title {
+    -fx-text-fill: #e8eaf0;
+    -fx-font-size: 18px;
+    -fx-font-weight: 700;
+    -fx-letter-spacing: 3px;
+}
+
+.header-sub {
+    -fx-text-fill: #8b90a8;
+    -fx-font-size: 11px;
+    -fx-letter-spacing: 1px;
+}
+
+.live-badge {
+    -fx-text-fill: #4ade80;
+    -fx-background-color: #1a3326;
+    -fx-padding: 3 10 3 10;
+    -fx-background-radius: 20;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 2px;
+}
+
+/* ── Tabs ─────────────────────────────────────────────────── */
+.main-tabs {
+    -fx-background-color: #0f1117;
+    -fx-tab-min-width: 120px;
+    -fx-tab-max-width: 200px;
+}
+
+.main-tabs .tab-header-area .tab-header-background {
+    -fx-background-color: #13161f;
+    -fx-border-color: #2a2f45;
+    -fx-border-width: 0 0 1 0;
+}
+
+.main-tabs .tab {
+    -fx-background-color: transparent;
+    -fx-text-fill: #8b90a8;
+    -fx-font-size: 13px;
+    -fx-padding: 10 16 10 16;
+    -fx-cursor: hand;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.main-tabs .tab:focused {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-background-color: transparent;
+}
+
+.main-tabs .tab:selected {
+    -fx-background-color: #1a1d27;
+    -fx-border-color: #f59e0b;
+    -fx-border-width: 0 0 2 0;
+}
+
+.main-tabs .tab:selected .tab-label {
+    -fx-text-fill: #f59e0b;
+    -fx-font-weight: bold;
+}
+
+.main-tabs .tab .tab-label {
+    -fx-text-fill: #8b90a8;
+}
+
+.main-tabs .tab-content-area {
+    -fx-background-color: #0f1117;
+    -fx-padding: 0;
+}
+
+/* ── Scroll Pane ──────────────────────────────────────────── */
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+/* ── Cards ────────────────────────────────────────────────── */
+.card {
+    -fx-background-color: #1a1d27;
+    -fx-background-radius: 10;
+    -fx-border-color: #2a2f45;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+    -fx-padding: 20;
+}
+
+.rate-card {
+    -fx-border-color: #2a2f45;
+    -fx-border-width: 1;
+}
+
+/* ── Stat Cards ───────────────────────────────────────────── */
+.stat-card {
+    -fx-background-color: #1a1d27;
+    -fx-background-radius: 10;
+    -fx-border-color: #2a2f45;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+    -fx-padding: 18 20 18 20;
+    -fx-spacing: 6;
+}
+
+.stat-card-amber {
+    -fx-background-color: #1a1d27;
+    -fx-background-radius: 10;
+    -fx-border-color: #78450a;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+    -fx-padding: 18 20 18 20;
+    -fx-spacing: 6;
+}
+
+.stat-card-green {
+    -fx-background-color: #1a1d27;
+    -fx-background-radius: 10;
+    -fx-border-color: #1a4a31;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+    -fx-padding: 18 20 18 20;
+    -fx-spacing: 6;
+}
+
+.stat-card-violet {
+    -fx-background-color: #1a1d27;
+    -fx-background-radius: 10;
+    -fx-border-color: #3a2d6a;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+    -fx-padding: 18 20 18 20;
+    -fx-spacing: 6;
+}
+
+.stat-label {
+    -fx-text-fill: #8b90a8;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 1.5px;
+}
+
+.stat-value {
+    -fx-text-fill: #e8eaf0;
+    -fx-font-size: 36px;
+    -fx-font-weight: 700;
+}
+
+.stat-value-small {
+    -fx-font-size: 26px;
+}
+
+/* ── Section / Page Titles ────────────────────────────────── */
+.section-title {
+    -fx-text-fill: #e8eaf0;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-letter-spacing: 0.5px;
+}
+
+.page-title {
+    -fx-text-fill: #e8eaf0;
+    -fx-font-size: 22px;
+    -fx-font-weight: 700;
+}
+
+.page-sub {
+    -fx-text-fill: #8b90a8;
+    -fx-font-size: 12px;
+}
+
+/* ── Progress Bars ────────────────────────────────────────── */
+.progress-bar > .bar {
+    -fx-background-color: #f59e0b;
+    -fx-background-radius: 4;
+}
+.progress-bar > .track {
+    -fx-background-color: #2a2f45;
+    -fx-background-radius: 4;
+}
+.progress-bar {
+    -fx-pref-height: 10px;
+    -fx-min-height: 10px;
+    -fx-max-height: 10px;
+}
+
+.progress-rd > .bar { -fx-background-color: #60a5fa; }
+.progress-ds > .bar { -fx-background-color: #a78bfa; }
+.progress-dd > .bar { -fx-background-color: #f472b6; }
+
+.room-type-label {
+    -fx-text-fill: #c5c9db;
+    -fx-font-size: 12px;
+    -fx-min-width: 130px;
+}
+
+.room-stat {
+    -fx-text-fill: #8b90a8;
+    -fx-font-size: 12px;
+    -fx-min-width: 130px;
+}
+
+/* ── Form ─────────────────────────────────────────────────── */
+.form-label {
+    -fx-text-fill: #c5c9db;
+    -fx-font-size: 13px;
+    -fx-min-width: 140px;
+}
+
+.hotel-input {
+    -fx-background-color: #22263a;
+    -fx-text-fill: #e8eaf0;
+    -fx-prompt-text-fill: #555c78;
+    -fx-border-color: #2a2f45;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 8 12 8 12;
+    -fx-font-size: 13px;
+    -fx-pref-height: 36px;
+}
+
+.hotel-input:focused {
+    -fx-border-color: #f59e0b;
+    -fx-background-color: #252940;
+}
+
+.info-label {
+    -fx-text-fill: #60a5fa;
+    -fx-font-size: 12px;
+}
+
+.hint-label {
+    -fx-text-fill: #8b90a8;
+    -fx-font-size: 11px;
+}
+
+.status-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #4ade80;
+}
+
+/* ── Buttons ──────────────────────────────────────────────── */
+.btn-primary {
+    -fx-background-color: #f59e0b;
+    -fx-text-fill: #0f1117;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 24 10 24;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-border-width: 0;
+}
+
+.btn-primary:hover {
+    -fx-background-color: #fbbf24;
+}
+
+.btn-secondary {
+    -fx-background-color: #22263a;
+    -fx-text-fill: #c5c9db;
+    -fx-font-size: 13px;
+    -fx-padding: 9 18 9 18;
+    -fx-background-radius: 8;
+    -fx-border-color: #2a2f45;
+    -fx-border-radius: 8;
+    -fx-cursor: hand;
+}
+
+.btn-secondary:hover {
+    -fx-background-color: #2a2f45;
+    -fx-text-fill: #e8eaf0;
+}
+
+.btn-danger {
+    -fx-background-color: #be3a3a;
+    -fx-text-fill: #fff;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 24 10 24;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-border-width: 0;
+}
+
+.btn-danger:hover {
+    -fx-background-color: #ef4444;
+}
+
+/* ── Room Select Chips (Booking) ──────────────────────────── */
+.room-select-chip {
+    -fx-background-color: #1e2235;
+    -fx-background-radius: 8;
+    -fx-border-color: #2a2f45;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-padding: 14 16 14 16;
+    -fx-spacing: 5;
+    -fx-cursor: hand;
+}
+
+.room-select-chip:hover {
+    -fx-background-color: #252940;
+    -fx-border-color: #f59e0b;
+}
+
+.room-select-chip-active {
+    -fx-background-color: #2a2410;
+    -fx-background-radius: 8;
+    -fx-border-color: #f59e0b;
+    -fx-border-radius: 8;
+    -fx-border-width: 2;
+    -fx-padding: 14 16 14 16;
+    -fx-spacing: 5;
+    -fx-cursor: hand;
+}
+
+.room-select-chip-sold {
+    -fx-background-color: #18181e;
+    -fx-background-radius: 8;
+    -fx-border-color: #2a2f45;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-padding: 14 16 14 16;
+    -fx-spacing: 5;
+    -fx-opacity: 0.45;
+    -fx-cursor: default;
+}
+
+.chip-avail {
+    -fx-text-fill: #8b90a8;
+    -fx-font-size: 11px;
+}
+.rate-chip {
+    -fx-background-color: #1e2235;
+    -fx-background-radius: 8;
+    -fx-border-color: #2a2f45;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-padding: 14 16 14 16;
+    -fx-spacing: 4;
+}
+
+.rate-chip-deluxe {
+    -fx-background-color: #1e1a30;
+    -fx-background-radius: 8;
+    -fx-border-color: #3a2d6a;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-padding: 14 16 14 16;
+    -fx-spacing: 4;
+}
+
+.rate-chip-label {
+    -fx-text-fill: #e8eaf0;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.rate-chip-range {
+    -fx-text-fill: #8b90a8;
+    -fx-font-size: 11px;
+}
+
+.rate-chip-price {
+    -fx-text-fill: #f59e0b;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+/* ── Revenue chip ─────────────────────────────────────────── */
+.revenue-chip {
+    -fx-background-color: #1a1d27;
+    -fx-background-radius: 8;
+    -fx-border-color: #3a2d6a;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-padding: 12 20 12 20;
+    -fx-spacing: 4;
+}
+
+.revenue-value {
+    -fx-text-fill: #a78bfa;
+    -fx-font-size: 22px;
+    -fx-font-weight: 700;
+}
+
+/* ── Tables ───────────────────────────────────────────────── */
+.hotel-table {
+    -fx-background-color: #1a1d27;
+    -fx-border-color: #2a2f45;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.hotel-table .column-header-background {
+    -fx-background-color: #13161f;
+    -fx-border-color: #2a2f45;
+    -fx-border-width: 0 0 1 0;
+}
+
+.hotel-table .column-header,
+.hotel-table .filler {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-size: 36px;
+}
+
+.hotel-table .column-header .label {
+    -fx-text-fill: #8b90a8;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 1px;
+}
+
+.hotel-table .table-row-cell {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #22263a transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-cell-size: 38px;
+}
+
+.hotel-table .table-row-cell:odd {
+    -fx-background-color: #1d2030;
+}
+
+.hotel-table .table-row-cell:selected {
+    -fx-background-color: #252940;
+}
+
+.hotel-table .table-row-cell .table-cell {
+    -fx-text-fill: #c5c9db;
+    -fx-font-size: 12px;
+    -fx-padding: 0 12 0 12;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.placeholder-text {
+    -fx-text-fill: #555c78;
+    -fx-font-size: 13px;
+}

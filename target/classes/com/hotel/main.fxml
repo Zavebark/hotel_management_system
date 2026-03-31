@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.hotel.MainController"
+            styleClass="root-pane"
+            stylesheets="@hotel.css">
+
+    <!-- ══════ TOP HEADER ══════ -->
+    <top>
+        <HBox styleClass="header" alignment="CENTER_LEFT" spacing="12">
+            <padding><Insets top="16" right="28" bottom="16" left="28"/></padding>
+            <Label text="🏨" style="-fx-font-size: 24px;"/>
+            <VBox spacing="1">
+                <Label text="GRAND VISTA" styleClass="header-title"/>
+                <Label text="Hotel Management System" styleClass="header-sub"/>
+            </VBox>
+            <Region HBox.hgrow="ALWAYS"/>
+            <VBox alignment="CENTER_RIGHT" spacing="2">
+                <Label text="LIVE" styleClass="live-badge"/>
+            </VBox>
+        </HBox>
+    </top>
+
+    <!-- ══════ MAIN TAB PANE ══════ -->
+    <center>
+        <TabPane fx:id="mainTabPane" styleClass="main-tabs" tabClosingPolicy="UNAVAILABLE">
+
+            <!-- ═══════════════════════════════════════════════════
+                 TAB 1 — DASHBOARD
+            ════════════════════════════════════════════════════ -->
+            <Tab text="  📊  Dashboard  ">
+                <ScrollPane fitToWidth="true" styleClass="scroll-pane">
+                    <VBox spacing="20">
+                        <padding><Insets top="24" right="28" bottom="24" left="28"/></padding>
+
+                        <!-- Stat cards row -->
+                        <HBox spacing="16">
+                            <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308">
+                                <Label text="GUESTS IN-HOUSE" styleClass="stat-label"/>
+                                <Label fx:id="lblTotalGuests" text="0" styleClass="stat-value"/>
+                            </VBox>
+                            <VBox styleClass="stat-card stat-card-amber" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308">
+                                <Label text="ROOMS OCCUPIED" styleClass="stat-label"/>
+                                <Label fx:id="lblOccupied" text="0" styleClass="stat-value"/>
+                            </VBox>
+                            <VBox styleClass="stat-card stat-card-green" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308">
+                                <Label text="ROOMS AVAILABLE" styleClass="stat-label"/>
+                                <Label fx:id="lblAvailable" text="0" styleClass="stat-value"/>
+                            </VBox>
+                            <VBox styleClass="stat-card stat-card-violet" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308">
+                                <Label text="TOTAL REVENUE" styleClass="stat-label"/>
+                                <Label fx:id="lblRevenue" text="₹0" styleClass="stat-value stat-value-small"/>
+                            </VBox>
+                        </HBox>
+
+                        <!-- Occupancy by room type -->
+                        <VBox styleClass="card" spacing="16">
+                            <Label text="Occupancy by Room Type" styleClass="section-title"/>
+                            <GridPane hgap="16" vgap="12">
+                                <!-- RegularSingle -->
+                                <Label text="Regular Single" styleClass="room-type-label" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                                <ProgressBar fx:id="pbRS" progress="0" styleClass="progress-rs" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.hgrow="ALWAYS"/>
+                                <Label fx:id="lblRSStat" text="0 / 250 (0%)" styleClass="room-stat" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+                                <!-- RegularDouble -->
+                                <Label text="Regular Double" styleClass="room-type-label" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                                <ProgressBar fx:id="pbRD" progress="0" styleClass="progress-rd" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.hgrow="ALWAYS"/>
+                                <Label fx:id="lblRDStat" text="0 / 250 (0%)" styleClass="room-stat" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                                <!-- DeluxeSingle -->
+                                <Label text="Deluxe Single" styleClass="room-type-label" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                                <ProgressBar fx:id="pbDS" progress="0" styleClass="progress-ds" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.hgrow="ALWAYS"/>
+                                <Label fx:id="lblDSStat" text="0 / 250 (0%)" styleClass="room-stat" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+                                <!-- DeluxeDouble -->
+                                <Label text="Deluxe Double" styleClass="room-type-label" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                                <ProgressBar fx:id="pbDD" progress="0" styleClass="progress-dd" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.hgrow="ALWAYS"/>
+                                <Label fx:id="lblDDStat" text="0 / 250 (0%)" styleClass="room-stat" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+                                <columnConstraints>
+                                    <ColumnConstraints minWidth="130" maxWidth="130"/>
+                                    <ColumnConstraints hgrow="ALWAYS" fillWidth="true"/>
+                                    <ColumnConstraints minWidth="140" maxWidth="160"/>
+                                </columnConstraints>
+                            </GridPane>
+                        </VBox>
+
+                        <!-- Guest Table -->
+                        <VBox styleClass="card" spacing="12" VBox.vgrow="ALWAYS">
+                            <Label text="Current Guests" styleClass="section-title"/>
+                            <TableView fx:id="guestTable" styleClass="hotel-table" prefHeight="280">
+                                <columns>
+                                    <TableColumn fx:id="colGuestRoom"    text="Room"      prefWidth="70"/>
+                                    <TableColumn fx:id="colGuestName"    text="Guest Name" prefWidth="160"/>
+                                    <TableColumn fx:id="colGuestPhone"   text="Phone"     prefWidth="130"/>
+                                    <TableColumn fx:id="colGuestType"    text="Room Type" prefWidth="130"/>
+                                    <TableColumn fx:id="colGuestDays"    text="Nights"    prefWidth="70"/>
+                                    <TableColumn fx:id="colGuestCheckIn" text="Check-in"  prefWidth="200"/>
+                                </columns>
+                                <placeholder><Label text="No guests currently checked in." styleClass="placeholder-text"/></placeholder>
+                            </TableView>
+                        </VBox>
+
+                    </VBox>
+                </ScrollPane>
+            </Tab>
+
+            <!-- ═══════════════════════════════════════════════════
+                 TAB 2 — BOOKING
+            ════════════════════════════════════════════════════ -->
+            <Tab text="  🛏️  Booking  ">
+                <ScrollPane fitToWidth="true" styleClass="scroll-pane">
+                    <VBox spacing="24">
+                        <padding><Insets top="32" right="200" bottom="32" left="200"/></padding>
+
+                        <Label text="Book a Room" styleClass="page-title"/>
+                        <Label text="Select a room type and fill in guest details. A room will be assigned automatically." styleClass="page-sub"/>
+
+                        <!-- Step 1: Room Type Selection -->
+                        <VBox styleClass="card" spacing="16">
+                            <Label text="Step 1 — Select Room Type" styleClass="section-title"/>
+                            <HBox spacing="12">
+                                <VBox fx:id="chipRS" styleClass="room-select-chip" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308" onMouseClicked="#onSelectRoomType">
+                                    <Label text="Regular Single" styleClass="rate-chip-label"/>
+                                    <Label text="₹1,500 / night" styleClass="rate-chip-price"/>
+                                    <Label fx:id="availRS" text="" styleClass="chip-avail"/>
+                                </VBox>
+                                <VBox fx:id="chipRD" styleClass="room-select-chip" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308" onMouseClicked="#onSelectRoomType">
+                                    <Label text="Regular Double" styleClass="rate-chip-label"/>
+                                    <Label text="₹2,500 / night" styleClass="rate-chip-price"/>
+                                    <Label fx:id="availRD" text="" styleClass="chip-avail"/>
+                                </VBox>
+                                <VBox fx:id="chipDS" styleClass="room-select-chip" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308" onMouseClicked="#onSelectRoomType">
+                                    <Label text="Deluxe Single" styleClass="rate-chip-label"/>
+                                    <Label text="₹2,300 / night" styleClass="rate-chip-price"/>
+                                    <Label fx:id="availDS" text="" styleClass="chip-avail"/>
+                                </VBox>
+                                <VBox fx:id="chipDD" styleClass="room-select-chip" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308" onMouseClicked="#onSelectRoomType">
+                                    <Label text="Deluxe Double" styleClass="rate-chip-label"/>
+                                    <Label text="₹3,500 / night" styleClass="rate-chip-price"/>
+                                    <Label fx:id="availDD" text="" styleClass="chip-avail"/>
+                                </VBox>
+                            </HBox>
+                            <Label fx:id="bookRoomInfoLabel" text="← Select a room type above to continue" styleClass="info-label" wrapText="true"/>
+                        </VBox>
+
+                        <!-- Step 2: Guest Details -->
+                        <VBox styleClass="card" spacing="14">
+                            <Label text="Step 2 — Guest Details" styleClass="section-title"/>
+                            <GridPane hgap="16" vgap="14">
+                                <Label text="Guest Name *" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                                <TextField fx:id="bookNameField" promptText="Full name" styleClass="hotel-input" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                                <Label text="Phone" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                                <TextField fx:id="bookPhoneField" promptText="Contact number (optional)" styleClass="hotel-input" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                                <Label text="Nights Booked *" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                                <TextField fx:id="bookDaysField" promptText="Number of nights" styleClass="hotel-input" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                                <columnConstraints>
+                                    <ColumnConstraints minWidth="140"/>
+                                    <ColumnConstraints hgrow="ALWAYS" fillWidth="true"/>
+                                </columnConstraints>
+                            </GridPane>
+                        </VBox>
+
+                        <HBox spacing="12" alignment="CENTER_LEFT">
+                            <Button text="✓  Confirm Booking" styleClass="btn-primary" onAction="#onBookRoom"/>
+                            <Label fx:id="bookStatusLabel" text="" styleClass="status-label" wrapText="true"/>
+                        </HBox>
+
+                    </VBox>
+                </ScrollPane>
+            </Tab>
+
+            <!-- ═══════════════════════════════════════════════════
+                 TAB 3 — CHECKOUT
+            ════════════════════════════════════════════════════ -->
+            <Tab text="  🔑  Checkout  ">
+                <ScrollPane fitToWidth="true" styleClass="scroll-pane">
+                    <VBox spacing="24">
+                        <padding><Insets top="32" right="200" bottom="32" left="200"/></padding>
+
+                        <Label text="Guest Checkout" styleClass="page-title"/>
+                        <Label text="Look up the room, optionally override nights stayed, then confirm checkout." styleClass="page-sub"/>
+
+                        <VBox styleClass="card" spacing="14">
+                            <Label text="Step 1 — Look up Room" styleClass="section-title"/>
+                            <HBox spacing="10" alignment="CENTER_LEFT">
+                                <TextField fx:id="checkoutRoomField" promptText="Room number" styleClass="hotel-input" prefWidth="220"/>
+                                <Button text="Find Guest" styleClass="btn-secondary" onAction="#onLookupCheckout"/>
+                            </HBox>
+                            <Label fx:id="checkoutGuestLabel" text="" styleClass="info-label" wrapText="true"/>
+                        </VBox>
+
+                        <VBox styleClass="card" spacing="14">
+                            <Label text="Step 2 — Confirm Checkout" styleClass="section-title"/>
+                            <HBox spacing="16" alignment="CENTER_LEFT">
+                                <Label text="Actual nights stayed" styleClass="form-label"/>
+                                <TextField fx:id="checkoutDaysField" promptText="Leave blank to use booked nights" styleClass="hotel-input" prefWidth="260"/>
+                            </HBox>
+                            <Label text="If left blank, the originally booked number of nights will be used for billing." styleClass="hint-label"/>
+                        </VBox>
+
+                        <HBox spacing="12" alignment="CENTER_LEFT">
+                            <Button text="🔑  Checkout &amp; Generate Bill" styleClass="btn-danger" onAction="#onCheckout"/>
+                            <Label fx:id="checkoutStatusLabel" text="" styleClass="status-label" wrapText="true"/>
+                        </HBox>
+
+                    </VBox>
+                </ScrollPane>
+            </Tab>
+
+            <!-- ═══════════════════════════════════════════════════
+                 TAB 4 — BILLING
+            ════════════════════════════════════════════════════ -->
+            <Tab text="  💳  Billing  ">
+                <VBox spacing="20">
+                    <padding><Insets top="24" right="28" bottom="24" left="28"/></padding>
+
+                    <HBox alignment="CENTER_LEFT" spacing="20">
+                        <Label text="Billing History" styleClass="page-title"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <VBox styleClass="revenue-chip" alignment="CENTER_RIGHT">
+                            <Label text="TOTAL REVENUE" styleClass="stat-label"/>
+                            <Label fx:id="lblTotalRevenue" text="₹0" styleClass="revenue-value"/>
+                        </VBox>
+                    </HBox>
+
+                    <TableView fx:id="billingTable" styleClass="hotel-table" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="colBillDate"   text="Checkout Date"  prefWidth="190"/>
+                            <TableColumn fx:id="colBillRoom"   text="Room"           prefWidth="70"/>
+                            <TableColumn fx:id="colBillGuest"  text="Guest Name"     prefWidth="150"/>
+                            <TableColumn fx:id="colBillPhone"  text="Phone"          prefWidth="120"/>
+                            <TableColumn fx:id="colBillType"   text="Room Type"      prefWidth="130"/>
+                            <TableColumn fx:id="colBillDays"   text="Nights"         prefWidth="70"/>
+                            <TableColumn fx:id="colBillAmount" text="Bill Amount"    prefWidth="120"/>
+                        </columns>
+                        <placeholder><Label text="No billing records yet." styleClass="placeholder-text"/></placeholder>
+                    </TableView>
+
+                </VBox>
+            </Tab>
+
+        </TabPane>
+    </center>
+
+</BorderPane>
