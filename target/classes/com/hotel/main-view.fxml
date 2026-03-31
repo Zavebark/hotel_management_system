@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.hotel.controller.MainController"
+      spacing="0">
+
+    <!-- Title Bar -->
+    <Label text="🏨 Hotel Management System"
+           style="-fx-font-size: 20px; -fx-font-weight: bold;
+                  -fx-background-color: #2c3e50; -fx-text-fill: white;
+                  -fx-padding: 15px; -fx-min-width: 900px;"/>
+
+    <!-- Tab Pane -->
+    <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE"
+             style="-fx-background-color: #ecf0f1;">
+
+        <!-- Rooms Tab -->
+        <Tab text="🛏 Rooms">
+            <VBox spacing="10" style="-fx-padding: 15px;">
+
+                <!-- Add Room Form -->
+                <Label text="Add New Room"
+                       style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+                <GridPane hgap="10" vgap="8">
+                    <Label text="Room Number:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <TextField fx:id="txtRoomNumber" promptText="e.g. 101"
+                               GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                    <Label text="Room Type:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <ComboBox fx:id="cmbRoomType" promptText="Select type"
+                              GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                    <Label text="Price/Night (Rs.):" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                    <TextField fx:id="txtRoomPrice" promptText="e.g. 2500"
+                               GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                    <Button text="Add Room" fx:id="btnAddRoom"
+                            onAction="#handleAddRoom"
+                            style="-fx-background-color: #27ae60; -fx-text-fill: white;"
+                            GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                </GridPane>
+
+                <Separator/>
+
+                <!-- Rooms Table -->
+                <HBox spacing="10">
+                    <Button text="Show All Rooms" onAction="#handleShowAllRooms"
+                            style="-fx-background-color: #2980b9; -fx-text-fill: white;"/>
+                    <Button text="Show Available Only" onAction="#handleShowAvailableRooms"
+                            style="-fx-background-color: #8e44ad; -fx-text-fill: white;"/>
+                </HBox>
+
+                <TableView fx:id="roomTable" prefHeight="250">
+                    <columns>
+                        <TableColumn fx:id="colRoomNumber" text="Room No." prefWidth="100"/>
+                        <TableColumn fx:id="colRoomType" text="Type" prefWidth="150"/>
+                        <TableColumn fx:id="colRoomPrice" text="Price/Night" prefWidth="150"/>
+                        <TableColumn fx:id="colRoomStatus" text="Status" prefWidth="150"/>
+                    </columns>
+                </TableView>
+
+                <Label fx:id="lblRoomMessage" style="-fx-text-fill: green;"/>
+            </VBox>
+        </Tab>
+
+        <!-- Customers Tab -->
+        <Tab text="👤 Customers">
+            <VBox spacing="10" style="-fx-padding: 15px;">
+
+                <Label text="Add New Customer"
+                       style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+                <GridPane hgap="10" vgap="8">
+                    <Label text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <TextField fx:id="txtCustomerName" promptText="Full name"
+                               GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                    <Label text="Contact Number:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <TextField fx:id="txtCustomerContact" promptText="Phone number"
+                               GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                    <Button text="Add Customer" fx:id="btnAddCustomer"
+                            onAction="#handleAddCustomer"
+                            style="-fx-background-color: #27ae60; -fx-text-fill: white;"
+                            GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                </GridPane>
+
+                <Separator/>
+
+                <TableView fx:id="customerTable" prefHeight="300">
+                    <columns>
+                        <TableColumn fx:id="colCustomerId" text="ID" prefWidth="80"/>
+                        <TableColumn fx:id="colCustomerName" text="Name" prefWidth="200"/>
+                        <TableColumn fx:id="colCustomerContact" text="Contact" prefWidth="200"/>
+                    </columns>
+                </TableView>
+
+                <Label fx:id="lblCustomerMessage" style="-fx-text-fill: green;"/>
+            </VBox>
+        </Tab>
+
+        <!-- Bookings Tab -->
+        <Tab text="📋 Bookings">
+            <VBox spacing="10" style="-fx-padding: 15px;">
+
+                <Label text="New Booking"
+                       style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+                <GridPane hgap="10" vgap="8">
+                    <Label text="Customer ID:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <TextField fx:id="txtBookingCustomerId" promptText="Customer ID"
+                               GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                    <Label text="Room Number:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <ComboBox fx:id="cmbBookingRoom" promptText="Select available room"
+                              GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                    <Label text="Check-In Date:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                    <TextField fx:id="txtCheckIn" promptText="DD/MM/YYYY"
+                               GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                    <Label text="Check-Out Date:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                    <TextField fx:id="txtCheckOut" promptText="DD/MM/YYYY"
+                               GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+                    <Label text="Number of Nights:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                    <TextField fx:id="txtNights" promptText="e.g. 3"
+                               GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+                    <Button text="Book Room" onAction="#handleBookRoom"
+                            style="-fx-background-color: #27ae60; -fx-text-fill: white;"
+                            GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+                </GridPane>
+
+                <Separator/>
+
+                <Label text="Active Bookings"
+                       style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+
+                <TableView fx:id="bookingTable" prefHeight="200">
+                    <columns>
+                        <TableColumn fx:id="colBookingId" text="Booking ID" prefWidth="100"/>
+                        <TableColumn fx:id="colBookingRoom" text="Room" prefWidth="80"/>
+                        <TableColumn fx:id="colBookingCustomer" text="Customer" prefWidth="150"/>
+                        <TableColumn fx:id="colBookingCheckIn" text="Check-In" prefWidth="100"/>
+                        <TableColumn fx:id="colBookingCheckOut" text="Check-Out" prefWidth="100"/>
+                        <TableColumn fx:id="colBookingTotal" text="Total (Rs.)" prefWidth="100"/>
+                    </columns>
+                </TableView>
+
+                <HBox spacing="10">
+                    <TextField fx:id="txtCheckoutId" promptText="Enter Booking ID to checkout"/>
+                    <Button text="Checkout" onAction="#handleCheckout"
+                            style="-fx-background-color: #e74c3c; -fx-text-fill: white;"/>
+                </HBox>
+
+                <Label fx:id="lblBookingMessage" style="-fx-text-fill: green;"/>
+            </VBox>
+        </Tab>
+
+    </TabPane>
+</VBox>

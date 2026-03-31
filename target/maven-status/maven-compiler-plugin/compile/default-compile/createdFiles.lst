@@ -1,4 +1,10 @@
 com\hotel\App.class
+com\hotel\model\Room.class
 module-info.class
-com\hotel\PrimaryController.class
-com\hotel\SecondaryController.class
+com\hotel\model\Booking.class
+com\hotel\service\RoomService.class
+com\hotel\model\Customer.class
+com\hotel\controller\MainController.class
+com\hotel\service\BookingService.class
+com\hotel\service\CustomerService.class
+com\hotel\storage\FileStorageManager.class
