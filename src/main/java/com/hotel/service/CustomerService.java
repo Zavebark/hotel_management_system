@@ -2,7 +2,6 @@ package com.hotel.service;
 
 import com.hotel.model.Customer;
 import com.hotel.storage.FileStorageManager;
-
 import java.util.List;
 
 public class CustomerService {
@@ -45,4 +44,9 @@ public class CustomerService {
         }
         return max + 1;
     }
+
+    public void deleteCustomer(int customerId) {
+    customers.removeIf(c -> c.getCustomerId() == customerId);
+    FileStorageManager.saveCustomers(customers);
+}
 }

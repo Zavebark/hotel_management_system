@@ -3,7 +3,7 @@ package com.hotel.storage;
 import com.hotel.model.Booking;
 import com.hotel.model.Customer;
 import com.hotel.model.Room;
-
+import com.hotel.model.ServiceRequest;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -89,4 +89,28 @@ public class FileStorageManager {
             return new ArrayList<>();
         }
     }
+
+    private static final String SERVICES_FILE = "data/services.dat";
+
+public static void saveServices(List<ServiceRequest> services) {
+    try (ObjectOutputStream oos = new ObjectOutputStream(
+            new FileOutputStream(SERVICES_FILE))) {
+        oos.writeObject(services);
+    } catch (IOException e) {
+        System.out.println("Error saving services: " + e.getMessage());
+    }
+}
+
+@SuppressWarnings("unchecked")
+public static List<ServiceRequest> loadServices() {
+    File f = new File(SERVICES_FILE);
+    if (!f.exists()) return new ArrayList<>();
+    try (ObjectInputStream ois = new ObjectInputStream(
+            new FileInputStream(f))) {
+        return (List<ServiceRequest>) ois.readObject();
+    } catch (IOException | ClassNotFoundException e) {
+        System.out.println("Error loading services: " + e.getMessage());
+        return new ArrayList<>();
+    }
+}
 }

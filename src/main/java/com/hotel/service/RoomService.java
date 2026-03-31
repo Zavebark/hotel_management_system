@@ -2,7 +2,6 @@ package com.hotel.service;
 
 import com.hotel.model.Room;
 import com.hotel.storage.FileStorageManager;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,4 +69,9 @@ public class RoomService {
         FileStorageManager.saveRooms(rooms);
         return true;
     }
+
+    public void deleteRoom(int roomNumber) {
+    rooms.removeIf(r -> r.getRoomNumber() == roomNumber);
+    FileStorageManager.saveRooms(rooms);
+}
 }

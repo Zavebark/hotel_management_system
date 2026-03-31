@@ -1,3 +1,4 @@
+D:\P(OSDL)\hotel_management_system\src\main\java\com\hotel\model\ServiceRequest.java
 D:\P(OSDL)\hotel_management_system\src\main\java\com\hotel\service\RoomService.java
 D:\P(OSDL)\hotel_management_system\src\main\java\com\hotel\model\Room.java
 D:\P(OSDL)\hotel_management_system\src\main\java\com\hotel\App.java
@@ -5,6 +6,7 @@ D:\P(OSDL)\hotel_management_system\src\main\java\com\hotel\service\BookingServic
 D:\P(OSDL)\hotel_management_system\src\main\java\com\hotel\storage\FileStorageManager.java
 D:\P(OSDL)\hotel_management_system\src\main\java\module-info.java
 D:\P(OSDL)\hotel_management_system\src\main\java\com\hotel\model\Booking.java
+D:\P(OSDL)\hotel_management_system\src\main\java\com\hotel\service\ServiceRequestService.java
 D:\P(OSDL)\hotel_management_system\src\main\java\com\hotel\controller\MainController.java
 D:\P(OSDL)\hotel_management_system\src\main\java\com\hotel\model\Customer.java
 D:\P(OSDL)\hotel_management_system\src\main\java\com\hotel\service\CustomerService.java
