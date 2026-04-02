@@ -1,10 +1,12 @@
 package com.hotel.controller;
 
-import javafx.scene.layout.Region;
-import javafx.scene.layout.Priority;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.stream.Collectors;
 
-import com.hotel.model.Booking;
 import com.hotel.model.BillingRecord;
+import com.hotel.model.Booking;
 import com.hotel.model.Customer;
 import com.hotel.model.PaidService;
 import com.hotel.model.Room;
@@ -13,32 +15,30 @@ import com.hotel.service.CustomerService;
 import com.hotel.service.RoomService;
 import com.hotel.storage.FileStorageManager;
 
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
-
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class MainController {
 
     // ── Room type constants ──
-    private static final String SS = "Standard Single";
-    private static final String SD = "Standard Double";
-    private static final String DS = "Deluxe Suite";
-    private static final String GS = "Grand Suite";
-    private static final String PS = "Presidential Suite";
+    private static final String SS = "Classic Room";
+    private static final String SD = "Superior Room";
+    private static final String DS = "Lumière Suite";
+    private static final String GS = "Grand Lumière";
+    private static final String PS = "Penthouse";
 
     private static final int CNT_SS = 300, CNT_SD = 300,
                               CNT_DS = 200, CNT_GS = 150, CNT_PS = 50;

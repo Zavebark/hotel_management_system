@@ -19,13 +19,15 @@
     <top>
         <HBox styleClass="header" alignment="CENTER_LEFT" spacing="12">
             <padding><Insets top="16" right="28" bottom="16" left="28"/></padding>
-            <Label text="🏨" style="-fx-font-size: 22px;"/>
+            <Label text="✦" style="-fx-font-size: 20px; -fx-text-fill: #3b82f6;"/>
             <VBox spacing="1">
-                <Label text="THE GRAND BUDAPEST" styleClass="header-title"/>
-                <Label text="Hotel Management System" styleClass="header-sub"/>
+                <Label text="HOTEL LUMIÈRE" styleClass="header-title"/>
+                <Label text="Premium Hotel Management System" styleClass="header-sub"/>
             </VBox>
             <Region HBox.hgrow="ALWAYS"/>
-            <Label text="✦ EST. 1932 ✦" styleClass="live-badge"/>
+            <VBox alignment="CENTER_RIGHT" spacing="2">
+                <Label text="LIVE" styleClass="live-badge"/>
+            </VBox>
         </HBox>
     </top>
 
@@ -40,41 +42,37 @@
                     <VBox spacing="20">
                         <padding><Insets top="24" right="28" bottom="24" left="28"/></padding>
 
-                        <!-- Stat Cards -->
                         <HBox spacing="16">
-    <VBox styleClass="stat-card"
-          HBox.hgrow="ALWAYS"
-          maxWidth="1.7976931348623157E308">
-        <Label text="GUESTS IN-HOUSE" styleClass="stat-label"/>
-        <Label fx:id="lblTotalGuests" text="0" styleClass="stat-value"/>
-    </VBox>
-    <VBox styleClass="stat-card-burgundy"
-          HBox.hgrow="ALWAYS"
-          maxWidth="1.7976931348623157E308">
-        <Label text="ROOMS OCCUPIED" styleClass="stat-label"/>
-        <Label fx:id="lblOccupied" text="0" styleClass="stat-value"/>
-    </VBox>
-    <VBox styleClass="stat-card-green"
-          HBox.hgrow="ALWAYS"
-          maxWidth="1.7976931348623157E308">
-        <Label text="ROOMS AVAILABLE" styleClass="stat-label"/>
-        <Label fx:id="lblAvailable" text="0" styleClass="stat-value"/>
-    </VBox>
-    <VBox styleClass="stat-card-violet"
-          HBox.hgrow="ALWAYS"
-          maxWidth="1.7976931348623157E308">
-        <Label text="TOTAL REVENUE" styleClass="stat-label"/>
-        <Label fx:id="lblRevenue" text="₹0"
-               styleClass="stat-value"/>
-    </VBox>
-</HBox> 
+                            <VBox styleClass="stat-card"
+                                  HBox.hgrow="ALWAYS"
+                                  maxWidth="1.7976931348623157E308">
+                                <Label text="GUESTS IN-HOUSE" styleClass="stat-label"/>
+                                <Label fx:id="lblTotalGuests" text="0" styleClass="stat-value"/>
+                            </VBox>
+                            <VBox styleClass="stat-card-amber"
+                                  HBox.hgrow="ALWAYS"
+                                  maxWidth="1.7976931348623157E308">
+                                <Label text="ROOMS OCCUPIED" styleClass="stat-label"/>
+                                <Label fx:id="lblOccupied" text="0" styleClass="stat-value"/>
+                            </VBox>
+                            <VBox styleClass="stat-card-green"
+                                  HBox.hgrow="ALWAYS"
+                                  maxWidth="1.7976931348623157E308">
+                                <Label text="ROOMS AVAILABLE" styleClass="stat-label"/>
+                                <Label fx:id="lblAvailable" text="0" styleClass="stat-value"/>
+                            </VBox>
+                            <VBox styleClass="stat-card-violet"
+                                  HBox.hgrow="ALWAYS"
+                                  maxWidth="1.7976931348623157E308">
+                                <Label text="TOTAL REVENUE" styleClass="stat-label"/>
+                                <Label fx:id="lblRevenue" text="₹0" styleClass="stat-value"/>
+                            </VBox>
+                        </HBox>
 
-                        <!-- Occupancy -->
                         <VBox styleClass="card" spacing="16">
-                            <Label text="Occupancy by Room Type"
-                                   styleClass="section-title"/>
+                            <Label text="Occupancy by Room Type" styleClass="section-title"/>
                             <GridPane hgap="16" vgap="12">
-                                <Label text="Standard Single" styleClass="room-type-label"
+                                <Label text="Classic Room" styleClass="room-type-label"
                                        GridPane.columnIndex="0" GridPane.rowIndex="0"/>
                                 <ProgressBar fx:id="pbSS" progress="0"
                                              maxWidth="1.7976931348623157E308"
@@ -84,10 +82,10 @@
                                        styleClass="room-stat"
                                        GridPane.columnIndex="2" GridPane.rowIndex="0"/>
 
-                                <Label text="Standard Double" styleClass="room-type-label"
+                                <Label text="Superior Room" styleClass="room-type-label"
                                        GridPane.columnIndex="0" GridPane.rowIndex="1"/>
                                 <ProgressBar fx:id="pbSD" progress="0"
-                                             styleClass="progress-gold"
+                                             styleClass="progress-rd"
                                              maxWidth="1.7976931348623157E308"
                                              GridPane.columnIndex="1" GridPane.rowIndex="1"
                                              GridPane.hgrow="ALWAYS"/>
@@ -95,10 +93,10 @@
                                        styleClass="room-stat"
                                        GridPane.columnIndex="2" GridPane.rowIndex="1"/>
 
-                                <Label text="Deluxe Suite" styleClass="room-type-label"
+                                <Label text="Lumière Suite" styleClass="room-type-label"
                                        GridPane.columnIndex="0" GridPane.rowIndex="2"/>
                                 <ProgressBar fx:id="pbDS" progress="0"
-                                             styleClass="progress-green"
+                                             styleClass="progress-ds"
                                              maxWidth="1.7976931348623157E308"
                                              GridPane.columnIndex="1" GridPane.rowIndex="2"
                                              GridPane.hgrow="ALWAYS"/>
@@ -106,10 +104,10 @@
                                        styleClass="room-stat"
                                        GridPane.columnIndex="2" GridPane.rowIndex="2"/>
 
-                                <Label text="Grand Suite" styleClass="room-type-label"
+                                <Label text="Grand Lumière" styleClass="room-type-label"
                                        GridPane.columnIndex="0" GridPane.rowIndex="3"/>
                                 <ProgressBar fx:id="pbGS" progress="0"
-                                             styleClass="progress-violet"
+                                             styleClass="progress-dd"
                                              maxWidth="1.7976931348623157E308"
                                              GridPane.columnIndex="1" GridPane.rowIndex="3"
                                              GridPane.hgrow="ALWAYS"/>
@@ -117,11 +115,9 @@
                                        styleClass="room-stat"
                                        GridPane.columnIndex="2" GridPane.rowIndex="3"/>
 
-                                <Label text="Presidential Suite"
-                                       styleClass="room-type-label"
+                                <Label text="Penthouse" styleClass="room-type-label"
                                        GridPane.columnIndex="0" GridPane.rowIndex="4"/>
                                 <ProgressBar fx:id="pbPS" progress="0"
-                                             styleClass="progress-blue"
                                              maxWidth="1.7976931348623157E308"
                                              GridPane.columnIndex="1" GridPane.rowIndex="4"
                                              GridPane.hgrow="ALWAYS"/>
@@ -137,7 +133,6 @@
                             </GridPane>
                         </VBox>
 
-                        <!-- Search + Guest Table -->
                         <VBox styleClass="card" spacing="12">
                             <HBox alignment="CENTER_LEFT" spacing="12">
                                 <Label text="Current Guests" styleClass="section-title"
@@ -188,54 +183,48 @@
                         <Label text="Select a room category and complete guest details."
                                styleClass="page-sub"/>
 
-                        <!-- Room Type Cards -->
                         <VBox styleClass="card" spacing="16">
                             <Label text="Step 1 — Select Room Category"
                                    styleClass="section-title"/>
                             <HBox spacing="12">
-                                <VBox fx:id="chipSS" styleClass="room-chip"
-                                      HBox.hgrow="ALWAYS"
-                                      minWidth="160"
+                                <VBox fx:id="chipSS" styleClass="room-select-chip"
+                                      HBox.hgrow="ALWAYS" minWidth="160"
                                       maxWidth="1.7976931348623157E308"
                                       onMouseClicked="#onSelectRoomType">
-                                    <Label text="Standard Single" styleClass="chip-name"/>
-                                    <Label text="₹1,500 / night" styleClass="chip-price"/>
+                                    <Label text="Classic Room" styleClass="rate-chip-label" wrapText="true"/>
+                                    <Label text="₹1,800 / night" styleClass="rate-chip-price" wrapText="true"/>
                                     <Label fx:id="availSS" text="" styleClass="chip-avail"/>
                                 </VBox>
-                                <VBox fx:id="chipSD" styleClass="room-chip"
-                                      HBox.hgrow="ALWAYS"
-                                      minWidth="160"
+                                <VBox fx:id="chipSD" styleClass="room-select-chip"
+                                      HBox.hgrow="ALWAYS" minWidth="160"
                                       maxWidth="1.7976931348623157E308"
                                       onMouseClicked="#onSelectRoomType">
-                                    <Label text="Standard Double" styleClass="chip-name"/>
-                                    <Label text="₹2,500 / night" styleClass="chip-price"/>
+                                    <Label text="Superior Room" styleClass="rate-chip-label" wrapText="true"/>
+                                    <Label text="₹3,200 / night" styleClass="rate-chip-price" wrapText="true"/>
                                     <Label fx:id="availSD" text="" styleClass="chip-avail"/>
                                 </VBox>
-                                <VBox fx:id="chipDS" styleClass="room-chip"
-                                      HBox.hgrow="ALWAYS"
-                                      minWidth="160"
+                                <VBox fx:id="chipDS" styleClass="room-select-chip"
+                                      HBox.hgrow="ALWAYS" minWidth="160"
                                       maxWidth="1.7976931348623157E308"
                                       onMouseClicked="#onSelectRoomType">
-                                    <Label text="Deluxe Suite" styleClass="chip-name"/>
-                                    <Label text="₹4,500 / night" styleClass="chip-price"/>
+                                    <Label text="Lumière Suite" styleClass="rate-chip-label" wrapText="true"/>
+                                    <Label text="₹5,500 / night" styleClass="rate-chip-price" wrapText="true"/>
                                     <Label fx:id="availDS" text="" styleClass="chip-avail"/>
                                 </VBox>
-                                <VBox fx:id="chipGS" styleClass="room-chip"
-                                      HBox.hgrow="ALWAYS"
-                                      minWidth="160"
+                                <VBox fx:id="chipGS" styleClass="room-select-chip"
+                                      HBox.hgrow="ALWAYS" minWidth="160"
                                       maxWidth="1.7976931348623157E308"
                                       onMouseClicked="#onSelectRoomType">
-                                    <Label text="Grand Suite" styleClass="chip-name"/>
-                                    <Label text="₹7,500 / night" styleClass="chip-price"/>
+                                    <Label text="Grand Lumière" styleClass="rate-chip-label" wrapText="true"/>
+                                    <Label text="₹8,500 / night" styleClass="rate-chip-price" wrapText="true"/>
                                     <Label fx:id="availGS" text="" styleClass="chip-avail"/>
                                 </VBox>
-                                <VBox fx:id="chipPS" styleClass="room-chip"
-                                      HBox.hgrow="ALWAYS"
-                                      minWidth="160"
+                                <VBox fx:id="chipPS" styleClass="room-select-chip"
+                                      HBox.hgrow="ALWAYS" minWidth="160"
                                       maxWidth="1.7976931348623157E308"
                                       onMouseClicked="#onSelectRoomType">
-                                    <Label text="Presidential" styleClass="chip-name"/>
-                                    <Label text="₹15,000 / night" styleClass="chip-price"/>
+                                    <Label text="Penthouse" styleClass="rate-chip-label" wrapText="true"/>
+                                    <Label text="₹18,000 / night" styleClass="rate-chip-price" wrapText="true"/>
                                     <Label fx:id="availPS" text="" styleClass="chip-avail"/>
                                 </VBox>
                             </HBox>
@@ -244,10 +233,8 @@
                                    styleClass="info-label"/>
                         </VBox>
 
-                        <!-- Guest Details -->
                         <VBox styleClass="card" spacing="14">
-                            <Label text="Step 2 — Guest Details"
-                                   styleClass="section-title"/>
+                            <Label text="Step 2 — Guest Details" styleClass="section-title"/>
                             <GridPane hgap="16" vgap="14">
                                 <Label text="Guest Name *" styleClass="form-label"
                                        GridPane.columnIndex="0" GridPane.rowIndex="0"/>
@@ -295,10 +282,8 @@
                         <Label text="Add paid services to a guest's room. These will be included in their final bill."
                                styleClass="page-sub"/>
 
-                        <!-- Room lookup -->
                         <VBox styleClass="card" spacing="14">
-                            <Label text="Step 1 — Find Guest Room"
-                                   styleClass="section-title"/>
+                            <Label text="Step 1 — Find Guest Room" styleClass="section-title"/>
                             <HBox spacing="10" alignment="CENTER_LEFT">
                                 <TextField fx:id="serviceRoomField"
                                            promptText="Enter room number"
@@ -310,17 +295,14 @@
                                    styleClass="info-label" wrapText="true"/>
                         </VBox>
 
-                        <!-- Service Cards -->
                         <VBox styleClass="card" spacing="14">
-                            <Label text="Step 2 — Select Service"
-                                   styleClass="section-title"/>
+                            <Label text="Step 2 — Select Service" styleClass="section-title"/>
                             <HBox spacing="12">
                                 <VBox fx:id="svcCleaning" styleClass="service-chip"
                                       HBox.hgrow="ALWAYS"
                                       maxWidth="1.7976931348623157E308"
                                       onMouseClicked="#onAddService">
-                                    <Label text="🧹  Room Cleaning"
-                                           styleClass="service-name"/>
+                                    <Label text="🧹  Room Cleaning" styleClass="service-name"/>
                                     <Label text="₹200" styleClass="service-price"/>
                                 </VBox>
                                 <VBox fx:id="svcLaundry" styleClass="service-chip"
@@ -334,8 +316,7 @@
                                       HBox.hgrow="ALWAYS"
                                       maxWidth="1.7976931348623157E308"
                                       onMouseClicked="#onAddService">
-                                    <Label text="🍽  Room Service"
-                                           styleClass="service-name"/>
+                                    <Label text="🍽  Room Service" styleClass="service-name"/>
                                     <Label text="₹500" styleClass="service-price"/>
                                 </VBox>
                             </HBox>
@@ -344,50 +325,39 @@
                                       HBox.hgrow="ALWAYS"
                                       maxWidth="1.7976931348623157E308"
                                       onMouseClicked="#onAddService">
-                                    <Label text="💆  Spa Access"
-                                           styleClass="service-name"/>
+                                    <Label text="💆  Spa Access" styleClass="service-name"/>
                                     <Label text="₹1,200" styleClass="service-price"/>
                                 </VBox>
                                 <VBox fx:id="svcTransfer" styleClass="service-chip"
                                       HBox.hgrow="ALWAYS"
                                       maxWidth="1.7976931348623157E308"
                                       onMouseClicked="#onAddService">
-                                    <Label text="🚗  Airport Transfer"
-                                           styleClass="service-name"/>
+                                    <Label text="🚗  Airport Transfer" styleClass="service-name"/>
                                     <Label text="₹800" styleClass="service-price"/>
                                 </VBox>
                                 <VBox fx:id="svcExtraBed" styleClass="service-chip"
                                       HBox.hgrow="ALWAYS"
                                       maxWidth="1.7976931348623157E308"
                                       onMouseClicked="#onAddService">
-                                    <Label text="🛏  Extra Bed"
-                                           styleClass="service-name"/>
+                                    <Label text="🛏  Extra Bed" styleClass="service-name"/>
                                     <Label text="₹600" styleClass="service-price"/>
                                 </VBox>
                             </HBox>
-                            <Label fx:id="serviceStatusLabel" text=""
-                                   styleClass="status-label"/>
+                            <Label fx:id="serviceStatusLabel" text="" styleClass="status-label"/>
                         </VBox>
 
-                        <!-- Current services for room -->
                         <VBox styleClass="card" spacing="12">
-                            <Label text="Services Added for This Room"
-                                   styleClass="section-title"/>
+                            <Label text="Services Added for This Room" styleClass="section-title"/>
                             <TableView fx:id="serviceTable" styleClass="hotel-table"
                                        prefHeight="200">
                                 <columns>
-                                    <TableColumn fx:id="colSvcRoom"
-                                                 text="Room" prefWidth="80"/>
-                                    <TableColumn fx:id="colSvcName"
-                                                 text="Service" prefWidth="200"/>
-                                    <TableColumn fx:id="colSvcPrice"
-                                                 text="Price (₹)" prefWidth="120"/>
-                                    <TableColumn fx:id="colSvcStatus"
-                                                 text="Status" prefWidth="120"/>
+                                    <TableColumn fx:id="colSvcRoom" text="Room" prefWidth="80"/>
+                                    <TableColumn fx:id="colSvcName" text="Service" prefWidth="200"/>
+                                    <TableColumn fx:id="colSvcPrice" text="Price (₹)" prefWidth="120"/>
+                                    <TableColumn fx:id="colSvcStatus" text="Status" prefWidth="120"/>
                                 </columns>
                                 <placeholder>
-                                    <Label text="No services added yet."
-                                           styleClass="placeholder-text"/>
+                                    <Label text="No services added yet." styleClass="placeholder-text"/>
                                 </placeholder>
                             </TableView>
                         </VBox>
@@ -407,10 +377,8 @@
                         <Label text="Look up the room to view the itemized bill, then confirm checkout."
                                styleClass="page-sub"/>
 
-                        <!-- Lookup -->
                         <VBox styleClass="card" spacing="14">
-                            <Label text="Step 1 — Look Up Room"
-                                   styleClass="section-title"/>
+                            <Label text="Step 1 — Look Up Room" styleClass="section-title"/>
                             <HBox spacing="10" alignment="CENTER_LEFT">
                                 <TextField fx:id="checkoutRoomField"
                                            promptText="Room number"
@@ -422,14 +390,11 @@
                                    styleClass="info-label" wrapText="true"/>
                         </VBox>
 
-                        <!-- Bill Preview -->
                         <VBox styleClass="card" spacing="12">
-                            <Label text="Step 2 — Bill Summary"
-                                   styleClass="section-title"/>
+                            <Label text="Step 2 — Bill Summary" styleClass="section-title"/>
                             <VBox fx:id="billItemsBox" spacing="8"/>
                             <HBox alignment="CENTER_RIGHT">
-                                <Label fx:id="lblBillTotal" text=""
-                                       styleClass="bill-total"/>
+                                <Label fx:id="lblBillTotal" text="" styleClass="bill-total"/>
                             </HBox>
                             <Label text="Actual nights stayed (leave blank to use booked):"
                                    styleClass="hint-label"/>
@@ -458,36 +423,25 @@
                         <Region HBox.hgrow="ALWAYS"/>
                         <VBox styleClass="revenue-chip" alignment="CENTER_RIGHT">
                             <Label text="TOTAL REVENUE" styleClass="stat-label"/>
-                            <Label fx:id="lblTotalRevenue" text="₹0"
-                                   styleClass="revenue-value"/>
+                            <Label fx:id="lblTotalRevenue" text="₹0" styleClass="revenue-value"/>
                         </VBox>
                     </HBox>
 
                     <TableView fx:id="billingTable" styleClass="hotel-table"
                                VBox.vgrow="ALWAYS">
                         <columns>
-                            <TableColumn fx:id="colBillDate" text="Checkout Date"
-                                         prefWidth="170"/>
-                            <TableColumn fx:id="colBillRoom" text="Room"
-                                         prefWidth="70"/>
-                            <TableColumn fx:id="colBillGuest" text="Guest Name"
-                                         prefWidth="150"/>
-                            <TableColumn fx:id="colBillPhone" text="Phone"
-                                         prefWidth="120"/>
-                            <TableColumn fx:id="colBillType" text="Room Type"
-                                         prefWidth="140"/>
-                            <TableColumn fx:id="colBillNights" text="Nights"
-                                         prefWidth="70"/>
-                            <TableColumn fx:id="colBillRoomAmt" text="Room Charges"
-                                         prefWidth="120"/>
-                            <TableColumn fx:id="colBillSvcAmt" text="Services"
-                                         prefWidth="100"/>
-                            <TableColumn fx:id="colBillTotal" text="Total Bill"
-                                         prefWidth="110"/>
+                            <TableColumn fx:id="colBillDate" text="Checkout Date" prefWidth="170"/>
+                            <TableColumn fx:id="colBillRoom" text="Room" prefWidth="70"/>
+                            <TableColumn fx:id="colBillGuest" text="Guest Name" prefWidth="150"/>
+                            <TableColumn fx:id="colBillPhone" text="Phone" prefWidth="120"/>
+                            <TableColumn fx:id="colBillType" text="Room Type" prefWidth="140"/>
+                            <TableColumn fx:id="colBillNights" text="Nights" prefWidth="70"/>
+                            <TableColumn fx:id="colBillRoomAmt" text="Room Charges" prefWidth="120"/>
+                            <TableColumn fx:id="colBillSvcAmt" text="Services" prefWidth="100"/>
+                            <TableColumn fx:id="colBillTotal" text="Total Bill" prefWidth="110"/>
                         </columns>
                         <placeholder>
-                            <Label text="No billing records yet."
-                                   styleClass="placeholder-text"/>
+                            <Label text="No billing records yet." styleClass="placeholder-text"/>
                         </placeholder>
                     </TableView>
                 </VBox>
