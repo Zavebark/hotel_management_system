@@ -17,7 +17,6 @@ public class App extends Application {
         Scene scene = new Scene(loader.load(), 900, 600);
         stage.setTitle("Hotel Management System");
         stage.setScene(scene);
-        stage.setResizable(false);
         stage.show();
     }
 
